@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusTimer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-svg">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script> <!-- icones -->
+  <script type="module" src="src/main.js" defer></script>
+</head>
+
+<body>
+  <section id="toggle-mode" class="flex">
+    <button class="ph ph-sun"></button>
+    <button class="ph ph-moon secondary"></button>
+  </section>
+
+  <div id="app">
+
+    <div id="container">
+
+      <section id="timer" class="flex">
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+      </section>
+
+      <section id="controls" class="flex">
+        <!-- dataset (data-) identifica qual botão está sendo clicado -->
+        <button data-action="toggleRunning" class="ph ph-play-circle"></button>
+        <button data-action="toggleRunning" class="ph ph-pause-circle secondary"></button>
+        <button data-action="reset" class="ph ph-stop-circle"></button>
+        <button data-action="set" class="ph ph-timer"></button>
+        <button data-action="increase" class="ph ph-plus-circle"></button>
+        <button data-action="decrease" class="ph ph-minus-circle"></button>
+
+      </section>
+
+    </div>
+
+    <section id="sounds" class="flex">
+      <button data-action="treeMusic" class="ph ph-tree secondary2"></button>
+      <button data-action="cloudMusic" class="ph ph-cloud-snow secondary2"></button>
+      <button data-action="storeMusic" class="ph ph-storefront secondary2"></button>
+      <button data-action="fireMusic" class="ph ph-campfire secondary2"></button>
+    </section>
+
+  </div>
+</body>
+
+</html>

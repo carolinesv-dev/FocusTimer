@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: sans-serif;
+  font-size: 62.5%;
+
+  --bg-color-app: #212125;
+  --text-color: #FFFFFF;
+  --bg-button: #e1e1e650;
+  --text-color-press: #FFFFFF;
+  --button-press: #02799D;
+}
+
+html.dark {
+  
+  --bg-color-app: #FFFFFF;
+  --text-color: #323238;
+  --bg-button: #E1E1E6;
+  --button-press: #02799D;
+}
+
+html.dark .ph-sun,
+html:not(.dark) .ph-moon {
+  display: none;
+}
+
+#toggle-mode button {
+  position: absolute;
+  right: 5.2rem;
+  top: 4.2rem;
+  font-size: 4.2rem;
+  line-height: 0;
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color-app);
+  color: var(--text-color);
+  display: grid;
+  place-content: center;
+
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18rem;
+  width: 100%;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+#timer {
+  font-size: 12.6rem;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4.8rem;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+#controls button {
+  background-color: var(--bg-color-app);
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+#controls button.ph-plus-circle:active,
+#controls button.ph-minus-circle:active,
+#controls button.ph-play-circle:active,
+#controls button.ph-stop-circle:active,
+#controls button.ph-pause-circle:active,
+#controls button.ph-timer:active {
+  color: var(--button-press);
+  transform: scale(1.2);
+}
+
+html.running {
+  color: var(--button-press);
+}
+
+.secondary {
+  color: var(--text-color);
+}
+
+.running #controls button.ph-pause-circle,
+html:not(.running) #controls button.ph-stop-circle,
+html:not(.running) #controls button.ph-pause-circle .secondary{
+  color: var(--button-press)
+}
+
+.running #controls button.ph-timer,
+.running #controls button.ph-play-circle,
+html:not(.running) #controls button.ph-stop-circle,
+html:not(.running) #controls button.ph-pause-circle {
+  display: none;
+}
+
+#toggle-running {
+  color: var(--text-color);
+}
+
+#sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Duas colunas de tamanhos iguais */
+  grid-template-rows: repeat(2, auto);
+  /* Duas linhas com altura automática */
+  grid-template-areas:
+    "ph-tree ph-cloud-snow"
+    "ph-storefront ph-campfire";
+  gap: 3.2rem;
+  /* Espaçamento entre os itens da grid */
+  align-items: center;
+  /* Alinha os itens verticalmente no centro */
+}
+
+#ph-tree {
+  grid-area: ph-tree;
+}
+
+#ph-cloud-snow {
+  grid-area: ph-cloud-snow;
+}
+
+#ph-storefront {
+  grid-area: ph-storefront;
+}
+
+#ph-campfire {
+  grid-area: ph-campfire;
+}
+
+#sounds button {
+  color: var(--text-color);
+  background-color: var(--bg-button);
+  width: 14rem;
+  height: 15rem;
+  border-radius: 2.4rem;
+  font-size: 5rem;
+}
+
+.secondary2 {
+  color: var(--text-color);
+  background-color: var(--bg-button);
+}
+
+.music-on-tree #sounds button.ph-tree,
+.music-on-cloud #sounds button.ph-cloud-snow,
+.music-on-store #sounds button.ph-storefront,
+.music-on-fire #sounds button.ph-campfire {
+  color: var(--text-color-press);
+  background-color: var(--button-press);
+}
+
+/* Estilo dos botões de música quando o som está desativado */
+html:not(.music-on-tree) #sounds button.ph-tree,
+html:not(.music-on-cloud) #sounds button.ph-cloud-snow,
+html:not(.music-on-store) #sounds button.ph-storefront,
+html:not(.music-on-fire) #sounds button.ph-campfire {
+  color: var(--text-color);
+  background-color: var(--bg-button);
+}
+
+@media (width < 900px) {
+  #app {
+    gap: 3.2rem;
+  }
+
+  #toggle-mode button {
+    position: absolute;
+    right: 5.2rem;
+    top: 5.2rem;
+    font-size: 3.2rem;
+    line-height: 2rem;
+  }
+
+  #timer {
+    font-size: 8.6rem;
+    line-height: 6rem;
+  }
+
+  #controls button {
+    font-size: 4rem;
+    padding: 0.8rem;
+  }
+
+  #sounds {
+    gap: 1.2rem;
+  }
+
+  #sounds button {
+    width: 9rem;
+    height: 10rem;
+    border-radius: 2.4rem;
+    font-size: 3rem;
+  }
+}
+
+@media (width < 450px) {
+  #app {
+    display: grid;
+    place-content: center;
+    margin-top: 4rem;
+  }
+
+  #toggle-mode button {
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    font-size: 2.5rem;
+    line-height: 0;
+  }
+
+  #timer {
+    font-size: 7rem;
+    line-height: 1rem;
+    margin-bottom: 0;
+  }
+
+  #controls button {
+    margin-top: 0;
+    font-size: 3.8rem;
+    padding: 0.4rem;
+    line-height: 0;
+    margin-bottom: 2rem;
+  }
+
+  #sounds {
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  #sounds button {
+    width: 8rem;
+    height: 10rem;
+    border-radius: 2rem;
+    font-size: 3rem;
+  }
+}
